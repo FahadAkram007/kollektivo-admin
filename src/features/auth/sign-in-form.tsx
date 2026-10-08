@@ -20,6 +20,9 @@ import {
 
 type Step = 'email' | 'email-code' | 'setup' | 'authenticator';
 
+const AUTHENTICATOR_HINT =
+  'Nicht der Code aus der E-Mail: die 6-stellige Zahl in der App, sie ändert sich alle 30 Sekunden.';
+
 /** Email → email code → (first time: QR for the authenticator app) → authenticator code. */
 export function SignInForm() {
   const router = useRouter();
@@ -42,7 +45,7 @@ export function SignInForm() {
     try {
       await action();
     } catch (caught) {
-      setError(signInErrorMessage(caught));
+      setError(signInErrorMessage(caught, step === 'setup' || step === 'authenticator' ? 'authenticator' : 'email'));
     } finally {
       setBusy(false);
     }
@@ -66,18 +69,21 @@ export function SignInForm() {
       }
     });
 
-  const codeField = (label: string) => (
-    <TextField
-      label={label}
-      inputMode="numeric"
-      autoComplete="one-time-code"
-      maxLength={6}
-      required
-      autoFocus
-      value={code}
-      onChange={(event) => setCode(event.target.value.replace(/\D/g, ''))}
-      className="min-h-14 rounded-xl border border-line px-4 text-center text-2xl tracking-[0.5em] outline-none focus:border-brand-purple"
-    />
+  const codeField = (label: string, hint?: string) => (
+    <div className="flex flex-col gap-1.5">
+      <TextField
+        label={label}
+        inputMode="numeric"
+        autoComplete="one-time-code"
+        maxLength={6}
+        required
+        autoFocus
+        value={code}
+        onChange={(event) => setCode(event.target.value.replace(/\D/g, ''))}
+        className="min-h-14 rounded-xl border border-line px-4 text-center text-2xl tracking-[0.5em] outline-none focus:border-brand-purple"
+      />
+      {hint && <p className="text-xs text-ink-muted">{hint}</p>}
+    </div>
   );
 
   return (
@@ -115,7 +121,7 @@ export function SignInForm() {
           <p className="text-sm text-ink-muted">
             Schritt 1 von 2: Code aus der E-Mail an <strong className="text-ink">{email.trim()}</strong>.
           </p>
-          {codeField('Code aus der E-Mail')}
+          {codeField('Code aus der E-Mail', 'Haben Sie mehrere E-Mails bekommen? Nur der Code aus der neuesten gilt.')}
           <Button type="submit" disabled={busy || code.length !== 6}>
             Weiter
           </Button>
@@ -135,7 +141,7 @@ export function SignInForm() {
               <p className="mt-1 font-mono break-all select-all">{setup.secret}</p>
             </details>
           </div>
-          {codeField('Code aus der Authenticator-App')}
+          {codeField('Code aus der Authenticator-App', AUTHENTICATOR_HINT)}
           <Button type="submit" disabled={busy || code.length !== 6}>
             Einrichten und anmelden
           </Button>
@@ -144,8 +150,11 @@ export function SignInForm() {
 
       {step === 'authenticator' && (
         <>
-          <p className="text-sm text-ink-muted">Schritt 2 von 2: Code aus Ihrer Authenticator-App.</p>
-          {codeField('Code aus der Authenticator-App')}
+          <p className="text-sm text-ink-muted">
+            Schritt 2 von 2: Öffnen Sie Ihre Authenticator-App und geben Sie die Zahl bei{' '}
+            <strong>KollektivO Admin</strong> ein.
+          </p>
+          {codeField('Code aus der Authenticator-App', AUTHENTICATOR_HINT)}
           <Button type="submit" disabled={busy || code.length !== 6}>
             Anmelden
           </Button>

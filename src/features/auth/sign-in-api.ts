@@ -27,13 +27,21 @@ export async function checkAuthenticatorCode(mfaToken: string, code: string): Pr
   await signInWithCustomToken(firebaseAuth(), session.firebaseCustomToken);
 }
 
-export function signInErrorMessage(error: unknown): string {
+/** [step] tells which code was wrong: the one from the email or the one from the authenticator app. */
+export function signInErrorMessage(error: unknown, step: 'email' | 'authenticator' = 'email'): string {
   if (!(error instanceof ApiError)) return 'Keine Verbindung zur API.';
   switch (error.code) {
     case 'account_not_found':
       return 'Für diese E-Mail-Adresse gibt es keinen Admin-Zugang.';
-    case 'sign_in_code_invalid':
-      return 'Der Code ist falsch.';
+    case 'sign_in_code_invalid': {
+      if (step === 'email') return 'Der Code aus der E-Mail ist falsch. Bitte den Code aus der neuesten E-Mail nehmen.';
+      const left = error.details.attemptsLeft;
+      return `Der Code aus der Authenticator-App ist falsch.${
+        typeof left === 'number'
+          ? ` Noch ${left} ${left === 1 ? 'Versuch' : 'Versuche'}, danach wird der Zugang gesperrt.`
+          : ''
+      }`;
+    }
     case 'sign_in_code_expired':
       return 'Der Code ist abgelaufen. Bitte neu anfordern.';
     case 'too_many_attempts':
