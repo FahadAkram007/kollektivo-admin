@@ -484,6 +484,70 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/admin/audit": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["AuditLogController_page_v1"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/admins": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["AdminsController_list_v1"];
+        put?: never;
+        post: operations["AdminsController_add_v1"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/admins/{userId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete: operations["AdminsController_remove_v1"];
+        options?: never;
+        head?: never;
+        patch: operations["AdminsController_changeRole_v1"];
+        trace?: never;
+    };
+    "/v1/admin/admins/{userId}/reset-2fa": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["AdminsController_resetTwoFactor_v1"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/partner/me": {
         parameters: {
             query?: never;
@@ -1791,6 +1855,52 @@ export interface components {
             owedToShopsCents: number;
             zag: components["schemas"]["ZagLimitDto"];
         };
+        AuditEntryDto: {
+            id: string;
+            createdAt: string;
+            actorId: string | null;
+            /** @description Name and email of who did it; "System" for jobs and tools */
+            actor: string;
+            /** @example partner.commission_changed */
+            action: string;
+            /** @example partner */
+            entity: string;
+            entityId: string | null;
+            /** @description Readable name of the record, e.g. shop name or email */
+            entityLabel: string | null;
+            details: {
+                [key: string]: unknown;
+            };
+        };
+        AuditPageDto: {
+            items: components["schemas"]["AuditEntryDto"][];
+            /** @description Pass as "before" for older entries */
+            nextBefore: string | null;
+        };
+        AdminAccountDto: {
+            userId: string;
+            email: string;
+            firstName: string;
+            lastName: string;
+            /** @enum {string} */
+            role: "admin" | "support" | "finance";
+            /** @description Authenticator app set up */
+            twoFactorReady: boolean;
+            lastSignInAt: string | null;
+            isYou: boolean;
+            addedAt: string;
+        };
+        AddAdminDto: {
+            email: string;
+            firstName: string;
+            lastName: string;
+            /** @enum {string} */
+            role: "admin" | "support" | "finance";
+        };
+        ChangeAdminRoleDto: {
+            /** @enum {string} */
+            role: "admin" | "support" | "finance";
+        };
         PartnerLocationDto: {
             id: string;
             name: string;
@@ -3072,6 +3182,135 @@ export interface operations {
                 content: {
                     "application/json": components["schemas"]["DashboardDto"];
                 };
+            };
+        };
+    };
+    AuditLogController_page_v1: {
+        parameters: {
+            query?: {
+                /** @description Start of the action, e.g. "partner." or "user.blocked" */
+                action?: string;
+                entityId?: string;
+                actorId?: string;
+                /** @description nextBefore of the previous page */
+                before?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AuditPageDto"];
+                };
+            };
+        };
+    };
+    AdminsController_list_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AdminAccountDto"][];
+                };
+            };
+        };
+    };
+    AdminsController_add_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AddAdminDto"];
+            };
+        };
+        responses: {
+            /** @description Access given; the person gets an email */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    AdminsController_remove_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                userId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    AdminsController_changeRole_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                userId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ChangeAdminRoleDto"];
+            };
+        };
+        responses: {
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    AdminsController_resetTwoFactor_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                userId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Authenticator removed; set up again at the next sign-in */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
             };
         };
     };

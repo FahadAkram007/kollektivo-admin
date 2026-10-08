@@ -1,15 +1,15 @@
 import type { Metadata } from 'next';
 
 import { PageHeader } from '@/components/ui/page-header';
+import { AdminsScreen } from '@/features/admins/admins-screen';
 
 export const metadata: Metadata = { title: 'Admins' };
 
-// TODO(admin): built in the next steps of the admin portal plan.
 export default function Page() {
   return (
     <>
       <PageHeader title="Admins" />
-      <p className="px-4 text-ink-muted md:px-8">Folgt in Kürze.</p>
+      <AdminsScreen />
     </>
   );
 }
