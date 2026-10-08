@@ -23,3 +23,40 @@ export const COMPANY_STATUS: Record<string, { label: string; tone: Tone }> = {
 export function percent(bps: number): string {
   return `${(bps / 100).toLocaleString('de-DE', { maximumFractionDigits: 2 })} %`;
 }
+
+export const TICKET_STATUS: Record<string, { label: string; tone: Tone }> = {
+  open: { label: 'Offen', tone: 'bad' },
+  waiting: { label: 'Wartet auf Rückmeldung', tone: 'warn' },
+  answered: { label: 'Beantwortet', tone: 'good' },
+  closed: { label: 'Geschlossen', tone: 'neutral' },
+};
+
+export const TICKET_TOPIC: Record<string, string> = {
+  payment: 'Zahlung',
+  balance: 'Guthaben',
+  account: 'Konto',
+  shops: 'Geschäfte',
+  other: 'Sonstiges',
+};
+
+export const PAYMENT_STATUS: Record<string, { label: string; tone: Tone }> = {
+  awaiting_shop: { label: 'Wartet auf Laden', tone: 'warn' },
+  completed: { label: 'Bezahlt', tone: 'good' },
+  declined: { label: 'Abgelehnt', tone: 'neutral' },
+  timed_out: { label: 'Nicht angenommen', tone: 'neutral' },
+  refunded: { label: 'Erstattet', tone: 'warn' },
+  partially_refunded: { label: 'Teilweise erstattet', tone: 'warn' },
+};
+
+export const EMPLOYMENT_STATUS: Record<string, { label: string; tone: Tone }> = {
+  invited: { label: 'Eingeladen', tone: 'warn' },
+  active: { label: 'Aktiv', tone: 'good' },
+  leaving: { label: 'Scheidet aus', tone: 'warn' },
+  ended: { label: 'Ausgeschieden', tone: 'neutral' },
+  blocked: { label: 'Gesperrt', tone: 'bad' },
+};
+
+/** Badge props for [status] in [labels], with a neutral fallback for unknown values. */
+export function badge(labels: Record<string, { label: string; tone: Tone }>, status: string) {
+  return labels[status] ?? { label: status, tone: 'neutral' as Tone };
+}

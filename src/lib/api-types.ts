@@ -340,6 +340,118 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/admin/tickets": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["AdminSupportController_list_v1"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/tickets/{ticketId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["AdminSupportController_detail_v1"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch: operations["AdminSupportController_setStatus_v1"];
+        trace?: never;
+    };
+    "/v1/admin/tickets/{ticketId}/replies": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["AdminSupportController_reply_v1"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/payments/{reference}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["LookupController_payment_v1"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/people": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["LookupController_personByEmail_v1"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/people/{userId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["LookupController_person_v1"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/people/{userId}/block": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put: operations["LookupController_block_v1"];
+        post?: never;
+        delete: operations["LookupController_unblock_v1"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/partner/me": {
         parameters: {
             query?: never;
@@ -1441,6 +1553,144 @@ export interface components {
             /** @enum {string} */
             role: "owner" | "hr";
         };
+        TicketRowDto: {
+            id: string;
+            /** @example KO-482913 */
+            number: string;
+            /** @enum {string} */
+            status: "open" | "waiting" | "answered" | "closed";
+            /** @enum {string} */
+            topic: "payment" | "balance" | "account" | "shops" | "other";
+            /** @enum {string} */
+            context: "employee" | "partner" | "employer";
+            fromEmail: string;
+            fromName: string;
+            /** @description Employer of the person (employees) */
+            employer: string;
+            paymentReference: string | null;
+            /** @description First lines of the first message */
+            preview: string;
+            messageCount: number;
+            createdAt: string;
+            updatedAt: string;
+        };
+        TicketMessageDto: {
+            id: string;
+            authorName: string;
+            /** @description Written by KollektivO support */
+            isStaff: boolean;
+            body: string;
+            createdAt: string;
+        };
+        TicketDetailDto: {
+            id: string;
+            /** @example KO-482913 */
+            number: string;
+            /** @enum {string} */
+            status: "open" | "waiting" | "answered" | "closed";
+            /** @enum {string} */
+            topic: "payment" | "balance" | "account" | "shops" | "other";
+            /** @enum {string} */
+            context: "employee" | "partner" | "employer";
+            fromEmail: string;
+            fromName: string;
+            /** @description Employer of the person (employees) */
+            employer: string;
+            paymentReference: string | null;
+            /** @description First lines of the first message */
+            preview: string;
+            messageCount: number;
+            createdAt: string;
+            updatedAt: string;
+            openedById: string;
+            messages: components["schemas"]["TicketMessageDto"][];
+        };
+        TicketReplyDto: {
+            /** @description Sent by email to the person */
+            body: string;
+            /** @description Close the ticket with this answer */
+            close?: boolean;
+        };
+        TicketStatusDto: {
+            /** @enum {string} */
+            status: "open" | "waiting" | "answered" | "closed";
+        };
+        LookupTicketDto: {
+            id: string;
+            number: string;
+            status: string;
+            createdAt: string;
+        };
+        PaymentLookupDto: {
+            id: string;
+            reference: string;
+            /** @enum {string} */
+            status: "awaiting_shop" | "completed" | "declined" | "timed_out" | "refunded" | "partially_refunded";
+            /** @enum {string} */
+            method: "till" | "printed_qr";
+            /** @description Paid with credit */
+            amountCents: number;
+            purchaseTotalCents: number;
+            commissionBps: number;
+            createdAt: string;
+            completedAt: string | null;
+            /** @description Ledger booking (only completed payments) */
+            ledgerTxId: string | null;
+            partnerId: string;
+            shopName: string;
+            shopAddress: string;
+            userId: string;
+            personName: string;
+            personEmail: string;
+            employer: string;
+            tickets: components["schemas"]["LookupTicketDto"][];
+        };
+        PersonEmploymentDto: {
+            employeeId: string;
+            employerId: string;
+            employer: string;
+            status: string;
+            monthlyAmountCents: number;
+            personnelNumber: string | null;
+            startedOn: string | null;
+            benefitEndsOn: string | null;
+            /** @description Current wallet balance */
+            balanceCents: number;
+        };
+        PersonMembershipDto: {
+            id: string;
+            name: string;
+            role: string;
+        };
+        LookupPaymentRowDto: {
+            reference: string;
+            status: string;
+            shopName: string;
+            amountCents: number;
+            createdAt: string;
+        };
+        PersonLookupDto: {
+            userId: string;
+            email: string;
+            firstName: string;
+            lastName: string;
+            /** @enum {string} */
+            status: "active" | "blocked";
+            createdAt: string;
+            hasSignedIn: boolean;
+            hasPaymentPin: boolean;
+            adminRole: string | null;
+            employments: components["schemas"]["PersonEmploymentDto"][];
+            shops: components["schemas"]["PersonMembershipDto"][];
+            companies: components["schemas"]["PersonMembershipDto"][];
+            /** @description Newest 20 */
+            payments: components["schemas"]["LookupPaymentRowDto"][];
+            tickets: components["schemas"]["LookupTicketDto"][];
+        };
+        BlockPersonDto: {
+            /** @description Why (in the audit log) */
+            reason: string;
+        };
         PartnerLocationDto: {
             id: string;
             name: string;
@@ -2478,6 +2728,203 @@ export interface operations {
                 "application/json": components["schemas"]["AdminInviteHrDto"];
             };
         };
+        responses: {
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    AdminSupportController_list_v1: {
+        parameters: {
+            query?: {
+                /** @description Default: all but closed */
+                status?: "open" | "waiting" | "answered" | "closed";
+                /** @description Ticket number, email or payment reference */
+                search?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TicketRowDto"][];
+                };
+            };
+        };
+    };
+    AdminSupportController_detail_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                ticketId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TicketDetailDto"];
+                };
+            };
+        };
+    };
+    AdminSupportController_setStatus_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                ticketId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["TicketStatusDto"];
+            };
+        };
+        responses: {
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    AdminSupportController_reply_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                ticketId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["TicketReplyDto"];
+            };
+        };
+        responses: {
+            /** @description Saved and emailed to the person */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    LookupController_payment_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                reference: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaymentLookupDto"];
+                };
+            };
+        };
+    };
+    LookupController_personByEmail_v1: {
+        parameters: {
+            query: {
+                email: unknown;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PersonLookupDto"];
+                };
+            };
+        };
+    };
+    LookupController_person_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                userId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PersonLookupDto"];
+                };
+            };
+        };
+    };
+    LookupController_block_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                userId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["BlockPersonDto"];
+            };
+        };
+        responses: {
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    LookupController_unblock_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                userId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
         responses: {
             204: {
                 headers: {
