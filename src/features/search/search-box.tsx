@@ -77,13 +77,13 @@ export function SearchBox({ initial = '', autoFocus = false }: { initial?: strin
           role="listbox"
           className="absolute top-full left-0 z-20 mt-1 max-h-[70vh] w-[min(28rem,90vw)] overflow-y-auto rounded-xl border border-line bg-white py-1 shadow-lg"
         >
-          {text.trim() !== query || suggestions.isFetching ? (
-            sections.length === 0 && <p className="px-3 py-2 text-sm text-ink-muted">Suche …</p>
-          ) : sections.length === 0 ? (
+          {sections.length === 0 && (
             <p className="px-3 py-2 text-sm text-ink-muted">
-              Keine Treffer. Enter sucht genau nach Referenz oder E-Mail.
+              {text.trim() !== query || suggestions.isFetching
+                ? 'Suche …'
+                : 'Keine Treffer. Enter sucht genau nach Referenz oder E-Mail.'}
             </p>
-          ) : null}
+          )}
           {sections.map((section) => (
             <div key={section.label} role="group" aria-label={section.label}>
               <p className="px-3 pt-2 pb-1 text-xs font-bold tracking-wide text-ink-muted uppercase">{section.label}</p>
