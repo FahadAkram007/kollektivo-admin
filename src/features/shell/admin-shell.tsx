@@ -9,6 +9,8 @@ import { Logo } from '@/components/ui/logo';
 import { Spinner } from '@/components/ui/spinner';
 import { useAuth } from '@/features/auth/auth-provider';
 
+import { SearchBox } from '@/features/search/search-box';
+
 import { adminMeQuery, type AdminMe } from './admin-api';
 import { navFor, ROLE_LABELS } from './admin-nav';
 
@@ -43,6 +45,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
             <Logo height={26} />
             <p className="mt-1 text-xs font-bold tracking-wide text-brand-red">ADMIN</p>
           </div>
+          {(me.data.role === 'admin' || me.data.role === 'support') && <SearchBox />}
           <nav className="flex flex-col gap-1">
             {navFor(me.data.role).map((item) => (
               <Link key={item.href} href={item.href} className={`rounded-lg px-3 py-2 text-sm ${linkClass(item.href)}`}>

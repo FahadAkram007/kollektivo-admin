@@ -452,6 +452,22 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/admin/search/suggest": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["SuggestController_suggest_v1"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/partner/me": {
         parameters: {
             query?: never;
@@ -1690,6 +1706,26 @@ export interface components {
         BlockPersonDto: {
             /** @description Why (in the audit log) */
             reason: string;
+        };
+        SuggestionDto: {
+            /** @description Id to open (user, payment reference, partner, employer or ticket) */
+            id: string;
+            /** @example Fahad Fahad */
+            title: string;
+            /** @example fahad@herrmann-lausitz.de · Herrmann Gruppe */
+            detail: string;
+        };
+        SuggestionGroupDto: {
+            items: components["schemas"]["SuggestionDto"][];
+            /** @description More matches than shown: search more precisely */
+            more: boolean;
+        };
+        SuggestionsDto: {
+            people: components["schemas"]["SuggestionGroupDto"];
+            payments: components["schemas"]["SuggestionGroupDto"];
+            shops: components["schemas"]["SuggestionGroupDto"];
+            companies: components["schemas"]["SuggestionGroupDto"];
+            tickets: components["schemas"]["SuggestionGroupDto"];
         };
         PartnerLocationDto: {
             id: string;
@@ -2931,6 +2967,28 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content?: never;
+            };
+        };
+    };
+    SuggestController_suggest_v1: {
+        parameters: {
+            query: {
+                /** @description At least 3 characters */
+                q: unknown;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SuggestionsDto"];
+                };
             };
         };
     };
