@@ -11,8 +11,18 @@ import { MIN_QUERY_LENGTH, suggestQuery, toSections, type SuggestionOption } fro
 /**
  * Search field with suggestions while typing (people, payments, tickets, shops, companies).
  * Arrow keys + Enter pick a suggestion; Enter without one searches exactly (reference or email).
+ * The list only opens while typing: not when the field just gets focus (e.g. after a pick opened a page).
+ * [clearOnPick]: empty the field after a pick (the sidebar box); otherwise it shows what was opened.
  */
-export function SearchBox({ initial = '', autoFocus = false }: { initial?: string; autoFocus?: boolean }) {
+export function SearchBox({
+  initial = '',
+  autoFocus = false,
+  clearOnPick = false,
+}: {
+  initial?: string;
+  autoFocus?: boolean;
+  clearOnPick?: boolean;
+}) {
   const router = useRouter();
   const listId = useId();
   const [text, setText] = useState(initial);
@@ -28,6 +38,7 @@ export function SearchBox({ initial = '', autoFocus = false }: { initial?: strin
   function go(href: string) {
     setOpen(false);
     setActive(-1);
+    if (clearOnPick) setText('');
     router.push(href);
   }
 
@@ -65,7 +76,6 @@ export function SearchBox({ initial = '', autoFocus = false }: { initial?: strin
           setOpen(true);
           setActive(-1);
         }}
-        onFocus={() => setOpen(true)}
         // Delay so a click on a suggestion still counts.
         onBlur={() => setTimeout(() => setOpen(false), 150)}
         onKeyDown={onKeyDown}

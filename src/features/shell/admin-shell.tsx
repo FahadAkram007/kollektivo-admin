@@ -45,7 +45,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
             <Logo height={26} />
             <p className="mt-1 text-xs font-bold tracking-wide text-brand-red">ADMIN</p>
           </div>
-          {(me.data.role === 'admin' || me.data.role === 'support') && <SearchBox />}
+          {(me.data.role === 'admin' || me.data.role === 'support') && <SearchBox clearOnPick />}
           <nav className="flex flex-col gap-1">
             {navFor(me.data.role).map((item) => (
               <Link key={item.href} href={item.href} className={`rounded-lg px-3 py-2 text-sm ${linkClass(item.href)}`}>
