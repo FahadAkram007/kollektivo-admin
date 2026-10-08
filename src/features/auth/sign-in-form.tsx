@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/ui/logo';
@@ -35,9 +35,21 @@ export function SignInForm() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  function reset() {
+    setStep('email');
+    setCode('');
+    setMfaToken('');
+    setSetup(null);
+    setError(null);
+  }
+
   useEffect(() => {
     if (state.status === 'signed-in') router.replace('/');
   }, [state.status, router]);
+
+  // Next.js keeps visited pages in memory (React Activity). When this page is left, everything entered is
+  // cleared: otherwise signing out would show the old step again, possibly the QR code with the 2FA secret.
+  useLayoutEffect(() => reset, []);
 
   async function run(action: () => Promise<void>) {
     setBusy(true);
@@ -66,6 +78,8 @@ export function SignInForm() {
         } else setStep('authenticator');
       } else {
         await checkAuthenticatorCode(mfaToken, code);
+        // Signed in: the secret and tokens are not needed any more.
+        reset();
       }
     });
 
@@ -167,15 +181,7 @@ export function SignInForm() {
         </p>
       )}
       {step !== 'email' && (
-        <button
-          type="button"
-          className="text-sm text-brand-purple hover:underline"
-          onClick={() => {
-            setStep('email');
-            setCode('');
-            setError(null);
-          }}
-        >
+        <button type="button" className="text-sm text-brand-purple hover:underline" onClick={reset}>
           Von vorn beginnen
         </button>
       )}
