@@ -44,10 +44,15 @@ export function signInErrorMessage(error: unknown, step: 'email' | 'authenticato
     }
     case 'sign_in_code_expired':
       return 'Der Code ist abgelaufen. Bitte neu anfordern.';
-    case 'too_many_attempts':
-      return error.status === 429 && error.message.includes('authenticator')
-        ? 'Zu viele falsche Codes aus der Authenticator-App. Eine andere Admin-Person muss Ihre 2FA zurücksetzen.'
-        : 'Zu viele Versuche. Bitte kurz warten.';
+    case 'too_many_attempts': {
+      if (error.message.includes('authenticator')) {
+        return 'Zu viele falsche Codes aus der Authenticator-App. Eine andere Admin-Person muss Ihre 2FA zurücksetzen.';
+      }
+      const minutes = error.details.retryInMinutes;
+      return typeof minutes === 'number'
+        ? `Zu viele Codes angefordert. Bitte in ${minutes} ${minutes === 1 ? 'Minute' : 'Minuten'} erneut versuchen.`
+        : 'Zu viele Versuche. Bitte kurz warten und erneut versuchen.';
+    }
     case 'unauthorized':
       return 'Die Anmeldung ist abgelaufen. Bitte von vorn beginnen.';
     default:
