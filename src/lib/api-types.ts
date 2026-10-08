@@ -468,6 +468,22 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/admin/dashboard": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["DashboardController_get_v1"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/partner/me": {
         parameters: {
             query?: never;
@@ -1726,6 +1742,54 @@ export interface components {
             shops: components["schemas"]["SuggestionGroupDto"];
             companies: components["schemas"]["SuggestionGroupDto"];
             tickets: components["schemas"]["SuggestionGroupDto"];
+        };
+        PeriodFiguresDto: {
+            payments: number;
+            /** @description Paid with KollektivO credit */
+            volumeCents: number;
+            /** @description KollektivO commission on those payments */
+            commissionCents: number;
+            /** @description Credited to employees in the month */
+            creditedCents: number;
+        };
+        DayFiguresDto: {
+            /** @example 2026-10-08 */
+            day: string;
+            payments: number;
+            volumeCents: number;
+        };
+        TopShopDto: {
+            partnerId: string;
+            name: string;
+            payments: number;
+            volumeCents: number;
+        };
+        ZagLimitDto: {
+            volumeCents: number;
+            /** @example 100000000 */
+            limitCents: number;
+            /** @description Share of the limit, 0–100+ */
+            percent: number;
+            /** @description From 80 % on: prepare the BaFin notification */
+            warning: boolean;
+        };
+        DashboardDto: {
+            activeEmployees: number;
+            activeCompanies: number;
+            activeShops: number;
+            openTickets: number;
+            today: components["schemas"]["PeriodFiguresDto"];
+            thisMonth: components["schemas"]["PeriodFiguresDto"];
+            lastMonth: components["schemas"]["PeriodFiguresDto"];
+            /** @description Last 30 days, oldest first */
+            days: components["schemas"]["DayFiguresDto"][];
+            /** @description This month, by volume */
+            topShops: components["schemas"]["TopShopDto"][];
+            /** @description Unspent credit in all employee wallets right now */
+            walletBalanceCents: number;
+            /** @description Owed to shops and not yet paid out */
+            owedToShopsCents: number;
+            zag: components["schemas"]["ZagLimitDto"];
         };
         PartnerLocationDto: {
             id: string;
@@ -2988,6 +3052,25 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["SuggestionsDto"];
+                };
+            };
+        };
+    };
+    DashboardController_get_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DashboardDto"];
                 };
             };
         };
