@@ -180,6 +180,534 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/admin/categories": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["ReferenceController_categories_v1"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/regions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["ReferenceController_regions_v1"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/shops": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["AdminShopsController_list_v1"];
+        put?: never;
+        post: operations["AdminShopsController_create_v1"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/shops/{partnerId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["AdminShopsController_detail_v1"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch: operations["AdminShopsController_update_v1"];
+        trace?: never;
+    };
+    "/v1/admin/shops/{partnerId}/locations/{locationId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch: operations["AdminShopsController_updateLocation_v1"];
+        trace?: never;
+    };
+    "/v1/admin/shops/{partnerId}/commission": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["AdminShopsController_changeCommission_v1"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/shops/{partnerId}/members": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["AdminShopsController_inviteMember_v1"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/companies": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["AdminCompaniesController_list_v1"];
+        put?: never;
+        post: operations["AdminCompaniesController_create_v1"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/admin/companies/{employerId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["AdminCompaniesController_detail_v1"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch: operations["AdminCompaniesController_update_v1"];
+        trace?: never;
+    };
+    "/v1/admin/companies/{employerId}/members": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["AdminCompaniesController_inviteHr_v1"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/partner/me": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["PartnersController_me_v1"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/partner/shops/{partnerId}/payments": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["PartnerPaymentsController_list_v1"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/partner/shops/{partnerId}/payments/csv": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["PartnerPaymentsController_csv_v1"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/partner/shops/{partnerId}/profile": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["ShopProfileController_get_v1"];
+        put: operations["ShopProfileController_update_v1"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/partner/shops/{partnerId}/locations/{locationId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put: operations["ShopProfileController_updateLocation_v1"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/partner/shops/{partnerId}/deal": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put: operations["ShopProfileController_setDeal_v1"];
+        post?: never;
+        delete: operations["ShopProfileController_removeDeal_v1"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/partner/shops/{partnerId}/photo": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["ShopProfileController_setPhoto_v1"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/partner/shops/{partnerId}/members": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["TeamController_list_v1"];
+        put?: never;
+        post: operations["TeamController_add_v1"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/partner/shops/{partnerId}/members/{userId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete: operations["TeamController_remove_v1"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/employer/me": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["EmployersController_me_v1"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/employer/companies/{employerId}/employees": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["EmployeesController_list_v1"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/employer/companies/{employerId}/invites": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["EmployeesController_invite_v1"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/employer/companies/{employerId}/invites/bulk": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["EmployeesController_inviteMany_v1"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/employer/companies/{employerId}/invites/{inviteId}/resend": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["EmployeesController_resend_v1"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/employer/companies/{employerId}/invites/{inviteId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete: operations["EmployeesController_cancel_v1"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/employer/companies/{employerId}/employees/{employeeId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch: operations["EmployeesController_update_v1"];
+        trace?: never;
+    };
+    "/v1/employer/companies/{employerId}/employees/{employeeId}/leaving": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put: operations["EmployeesController_setLeaving_v1"];
+        post?: never;
+        delete: operations["EmployeesController_cancelLeaving_v1"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/employer/companies/{employerId}/employees/{employeeId}/block": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put: operations["EmployeesController_block_v1"];
+        post?: never;
+        delete: operations["EmployeesController_unblock_v1"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/employer/companies/{employerId}/months": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["MonthsController_list_v1"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/employer/companies/{employerId}/months/{period}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["MonthsController_detail_v1"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/employer/companies/{employerId}/months/{period}/payroll": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["MonthsController_payroll_v1"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/employer/companies/{employerId}/members": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["HrTeamController_list_v1"];
+        put?: never;
+        post: operations["HrTeamController_add_v1"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/employer/companies/{employerId}/members/{userId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete: operations["HrTeamController_remove_v1"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/v1/me": {
         parameters: {
             query?: never;
@@ -452,150 +980,6 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/v1/partner/me": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get: operations["PartnersController_me_v1"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/v1/partner/shops/{partnerId}/payments": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get: operations["PartnerPaymentsController_list_v1"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/v1/partner/shops/{partnerId}/payments/csv": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get: operations["PartnerPaymentsController_csv_v1"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/v1/partner/shops/{partnerId}/profile": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get: operations["ShopProfileController_get_v1"];
-        put: operations["ShopProfileController_update_v1"];
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/v1/partner/shops/{partnerId}/locations/{locationId}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put: operations["ShopProfileController_updateLocation_v1"];
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/v1/partner/shops/{partnerId}/deal": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put: operations["ShopProfileController_setDeal_v1"];
-        post?: never;
-        delete: operations["ShopProfileController_removeDeal_v1"];
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/v1/partner/shops/{partnerId}/photo": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        post: operations["ShopProfileController_setPhoto_v1"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/v1/partner/shops/{partnerId}/members": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get: operations["TeamController_list_v1"];
-        put?: never;
-        post: operations["TeamController_add_v1"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/v1/partner/shops/{partnerId}/members/{userId}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        post?: never;
-        delete: operations["TeamController_remove_v1"];
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
     "/v1/shops": {
         parameters: {
             query?: never;
@@ -687,230 +1071,6 @@ export interface paths {
         put?: never;
         post: operations["SupportController_create_v1"];
         delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/v1/employer/me": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get: operations["EmployersController_me_v1"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/v1/employer/companies/{employerId}/employees": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get: operations["EmployeesController_list_v1"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/v1/employer/companies/{employerId}/invites": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        post: operations["EmployeesController_invite_v1"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/v1/employer/companies/{employerId}/invites/bulk": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        post: operations["EmployeesController_inviteMany_v1"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/v1/employer/companies/{employerId}/invites/{inviteId}/resend": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        post: operations["EmployeesController_resend_v1"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/v1/employer/companies/{employerId}/invites/{inviteId}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        post?: never;
-        delete: operations["EmployeesController_cancel_v1"];
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/v1/employer/companies/{employerId}/employees/{employeeId}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch: operations["EmployeesController_update_v1"];
-        trace?: never;
-    };
-    "/v1/employer/companies/{employerId}/employees/{employeeId}/leaving": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put: operations["EmployeesController_setLeaving_v1"];
-        post?: never;
-        delete: operations["EmployeesController_cancelLeaving_v1"];
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/v1/employer/companies/{employerId}/employees/{employeeId}/block": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put: operations["EmployeesController_block_v1"];
-        post?: never;
-        delete: operations["EmployeesController_unblock_v1"];
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/v1/employer/companies/{employerId}/months": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get: operations["MonthsController_list_v1"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/v1/employer/companies/{employerId}/months/{period}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get: operations["MonthsController_detail_v1"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/v1/employer/companies/{employerId}/months/{period}/payroll": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get: operations["MonthsController_payroll_v1"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/v1/employer/companies/{employerId}/members": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get: operations["HrTeamController_list_v1"];
-        put?: never;
-        post: operations["HrTeamController_add_v1"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/v1/employer/companies/{employerId}/members/{userId}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        post?: never;
-        delete: operations["HrTeamController_remove_v1"];
         options?: never;
         head?: never;
         patch?: never;
@@ -1038,6 +1198,525 @@ export interface components {
             /** @description After this time the admin must sign in again */
             sessionEndsAt: string;
         };
+        CategoryOptionDto: {
+            /** @example bakery */
+            slug: string;
+            /** @example Bäckerei */
+            name: string;
+            /**
+             * @description Parent category
+             * @example Lebensmittel
+             */
+            group?: string;
+            /** @description Higher voucher-for-voucher risk, check closely */
+            needsReview: boolean;
+        };
+        AdminShopRowDto: {
+            partnerId: string;
+            name: string;
+            category: string;
+            /** @enum {string} */
+            status: "applied" | "in_review" | "active" | "suspended";
+            /** @description City of the first location */
+            city: string;
+            locationCount: number;
+            /** @description Current commission in basis points */
+            commissionBps: number;
+            paymentsThisMonth: number;
+            /** @description Paid with KollektivO credit this month */
+            volumeThisMonthCents: number;
+            createdAt: string;
+        };
+        AdminShopLocationDto: {
+            id: string;
+            name: string;
+            street: string;
+            postalCode: string;
+            city: string;
+            lat: number;
+            lng: number;
+            phone: string | null;
+            /** @enum {string} */
+            status: "active" | "paused" | "closed";
+            region: string;
+            printedQrPayload: string | null;
+        };
+        AdminMemberDto: {
+            userId: string;
+            email: string;
+            firstName: string;
+            lastName: string;
+            role: string;
+            hasSignedIn: boolean;
+        };
+        CommissionRateDto: {
+            rateBps: number;
+            /** @description YYYY-MM-DD */
+            validFrom: string;
+            /** @description YYYY-MM-DD; empty = current */
+            validTo: string | null;
+            reason: string | null;
+        };
+        ShopMonthDto: {
+            /** @example 2026-10 */
+            period: string;
+            payments: number;
+            volumeCents: number;
+            commissionCents: number;
+        };
+        AdminShopDetailDto: {
+            partnerId: string;
+            legalName: string;
+            displayName: string;
+            category: string;
+            categoryName: string;
+            /** @enum {string} */
+            status: "applied" | "in_review" | "active" | "suspended";
+            website: string | null;
+            description: string;
+            createdAt: string;
+            locations: components["schemas"]["AdminShopLocationDto"][];
+            members: components["schemas"]["AdminMemberDto"][];
+            /** @description Newest first */
+            commissionRates: components["schemas"]["CommissionRateDto"][];
+            /** @description This and last month */
+            months: components["schemas"]["ShopMonthDto"][];
+        };
+        CreateAdminShopDto: {
+            /** @example Backstube Lindner */
+            name: string;
+            /** @example bakery */
+            category: string;
+            /** @example Lausitz */
+            region: string;
+            street: string;
+            postalCode: string;
+            city: string;
+            lat: number;
+            lng: number;
+            /**
+             * @description Commission in percent
+             * @example 2
+             */
+            commissionPercent: number;
+            ownerEmail: string;
+            ownerFirstName: string;
+            ownerLastName: string;
+            phone?: string;
+            website?: string;
+            description?: string;
+        };
+        AdminCreatedDto: {
+            id: string;
+        };
+        UpdateAdminShopDto: {
+            legalName?: string;
+            displayName?: string;
+            category?: string;
+            /**
+             * @description suspended: hidden in the app, no payments
+             * @enum {string}
+             */
+            status?: "active" | "suspended";
+        };
+        UpdateAdminLocationDto: {
+            name?: string;
+            street?: string;
+            postalCode?: string;
+            city?: string;
+            lat?: number;
+            lng?: number;
+            /** @enum {string} */
+            status?: "active" | "paused" | "closed";
+        };
+        ChangeCommissionDto: {
+            /** @example 1.5 */
+            ratePercent: number;
+            /**
+             * @description First day of the new rate (today or later)
+             * @example 2026-11-01
+             */
+            validFrom: string;
+            /** @example Nachtrag zum Vertrag vom 15.10.2026 */
+            reason: string;
+        };
+        AdminInviteMemberDto: {
+            email: string;
+            firstName: string;
+            lastName: string;
+            /** @enum {string} */
+            role: "owner" | "staff";
+        };
+        AdminCompanyRowDto: {
+            employerId: string;
+            name: string;
+            /** @enum {string} */
+            status: "onboarding" | "active" | "ended";
+            city: string;
+            /** @description Active and leaving employees */
+            activeEmployees: number;
+            /** @description Invites not yet accepted */
+            openInvites: number;
+            createdAt: string;
+        };
+        EmployeeCountsDto: {
+            active: number;
+            leaving: number;
+            ended: number;
+            blocked: number;
+            openInvites: number;
+        };
+        MonthSummaryDto: {
+            /** @example 2026-10 */
+            period: string;
+            /** @description Employees who received credit this month */
+            employeeCount: number;
+            /** @description Credited to employees (the tax-free benefit) */
+            creditedCents: number;
+            /** @description Spent at partner shops */
+            spentCents: number;
+            /** @description Unspent, returned to the employer at month end */
+            returnedCents: number;
+            /** @description Still usable (current month) */
+            openCents: number;
+            /** @description The month is over and settled */
+            closed: boolean;
+        };
+        AdminCompanyDetailDto: {
+            employerId: string;
+            name: string;
+            /** @enum {string} */
+            status: "onboarding" | "active" | "ended";
+            street: string;
+            postalCode: string;
+            city: string;
+            lat: number;
+            lng: number;
+            region: string;
+            billingEmail: string;
+            vatId: string | null;
+            createdAt: string;
+            members: components["schemas"]["AdminMemberDto"][];
+            employees: components["schemas"]["EmployeeCountsDto"];
+            /** @description Newest first, up to 6 */
+            months: components["schemas"]["MonthSummaryDto"][];
+        };
+        CreateAdminCompanyDto: {
+            /** @example Herrmann Gruppe Lausitz GmbH */
+            name: string;
+            /** @example Lausitz */
+            region: string;
+            street: string;
+            postalCode: string;
+            city: string;
+            /** @description Workplace (map centre in the app) */
+            lat: number;
+            lng: number;
+            billingEmail: string;
+            vatId?: string;
+            hrEmail: string;
+            hrFirstName: string;
+            hrLastName: string;
+        };
+        UpdateAdminCompanyDto: {
+            name?: string;
+            street?: string;
+            postalCode?: string;
+            city?: string;
+            lat?: number;
+            lng?: number;
+            billingEmail?: string;
+            /** @description Empty to remove */
+            vatId?: string;
+            /**
+             * @description ended: no more monthly credits for anyone
+             * @enum {string}
+             */
+            status?: "active" | "ended";
+        };
+        AdminInviteHrDto: {
+            email: string;
+            firstName: string;
+            lastName: string;
+            /** @enum {string} */
+            role: "owner" | "hr";
+        };
+        PartnerLocationDto: {
+            id: string;
+            name: string;
+            street: string;
+            postalCode: string;
+            city: string;
+            /** @description The till ("Kasse") for payment requests */
+            tillId: string | null;
+            /** @description Text of the printed shop QR code, e.g. "kollektivo:shop:…" */
+            printedQrPayload: string | null;
+        };
+        PartnerShopDto: {
+            partnerId: string;
+            name: string;
+            /** @enum {string} */
+            role: "owner" | "staff";
+            /** @enum {string} */
+            status: "applied" | "in_review" | "active" | "suspended";
+            locations: components["schemas"]["PartnerLocationDto"][];
+        };
+        PartnerMeDto: {
+            id: string;
+            email: string;
+            firstName: string;
+            lastName: string;
+            shops: components["schemas"]["PartnerShopDto"][];
+        };
+        PartnerPaymentTotalsDto: {
+            count: number;
+            /** @description Paid with KollektivO credit */
+            amountCents: number;
+            purchaseTotalCents: number;
+            commissionCents: number;
+        };
+        PartnerPaymentRowDto: {
+            id: string;
+            /** @example DA7-5330 */
+            reference: string;
+            createdAt: string;
+            locationId: string;
+            /**
+             * @description Code from the till or the printed QR sticker
+             * @enum {string}
+             */
+            method: "till" | "printed_qr";
+            /** @enum {string} */
+            status: "awaiting_shop" | "completed" | "declined" | "timed_out" | "refunded" | "partially_refunded";
+            /** @description Paid with KollektivO credit */
+            amountCents: number;
+            /** @description Whole purchase; the difference was paid at the till */
+            purchaseTotalCents: number;
+            /**
+             * @description Basis points, 200 = 2 %
+             * @example 200
+             */
+            commissionBps: number;
+            /** @description Only for completed payments, else 0 */
+            commissionCents: number;
+        };
+        PartnerPaymentsPageDto: {
+            from: string;
+            to: string;
+            totals: components["schemas"]["PartnerPaymentTotalsDto"];
+            items: components["schemas"]["PartnerPaymentRowDto"][];
+            /** @description Pass as "before" for older payments; empty at the end */
+            nextBefore: string | null;
+        };
+        ShopDealDto: {
+            /** @example 10 % auf alle Kuchen */
+            title: string;
+            endsAt: string;
+        };
+        OpeningPeriodDto: {
+            /** @description 1 = Monday … 7 = Sunday */
+            weekday: number;
+            /** @description Minutes after midnight */
+            opensAt: number;
+            /** @description Minutes after midnight */
+            closesAt: number;
+        };
+        ShopProfileLocationDto: {
+            id: string;
+            name: string;
+            street: string;
+            postalCode: string;
+            city: string;
+            phone: string | null;
+            openingHours: components["schemas"]["OpeningPeriodDto"][];
+        };
+        ShopProfileDto: {
+            partnerId: string;
+            name: string;
+            /** @example bakery */
+            category: string;
+            description: string;
+            website: string | null;
+            imageUrl: string | null;
+            deal: components["schemas"]["ShopDealDto"] | null;
+            locations: components["schemas"]["ShopProfileLocationDto"][];
+        };
+        UpdateShopProfileDto: {
+            description: string;
+            /**
+             * @description Empty to remove
+             * @example www.backstube-lindner.de
+             */
+            website?: string;
+        };
+        OpeningPeriodInputDto: {
+            /** @description 1 = Monday … 7 = Sunday */
+            weekday: number;
+            /** @description Minutes after midnight */
+            opensAt: number;
+            /** @description Minutes after midnight, after opensAt */
+            closesAt: number;
+        };
+        UpdateShopLocationDto: {
+            /**
+             * @description Empty to remove
+             * @example 03573 123456
+             */
+            phone?: string;
+            /** @description Up to 3 periods per day (e.g. lunch break) */
+            openingHours: components["schemas"]["OpeningPeriodInputDto"][];
+        };
+        SetShopDealDto: {
+            /** @example 10 % auf alle Kuchen */
+            title: string;
+            /**
+             * @description Last day (German time); default in one year
+             * @example 2026-12-31
+             */
+            endsOn?: string;
+        };
+        TeamMemberDto: {
+            userId: string;
+            email: string;
+            firstName: string;
+            lastName: string;
+            /** @enum {string} */
+            role: "owner" | "staff";
+            addedAt: string;
+            /** @description Has signed in at least once (in the portal or the app) */
+            hasSignedIn: boolean;
+            /** @description The signed-in person */
+            isYou: boolean;
+        };
+        AddTeamMemberDto: {
+            /** @example kasse@backstube.example */
+            email: string;
+            firstName: string;
+            lastName: string;
+            /**
+             * @description staff = till and payments; owner = everything
+             * @enum {string}
+             */
+            role: "owner" | "staff";
+        };
+        EmployerCompanyDto: {
+            employerId: string;
+            name: string;
+            /**
+             * @description owner = also manages the HR team
+             * @enum {string}
+             */
+            role: "owner" | "hr";
+            /** @enum {string} */
+            status: "onboarding" | "active" | "ended";
+            street: string;
+            postalCode: string;
+            city: string;
+        };
+        EmployerMeDto: {
+            id: string;
+            email: string;
+            firstName: string;
+            lastName: string;
+            companies: components["schemas"]["EmployerCompanyDto"][];
+        };
+        EmployeeRowDto: {
+            /** @enum {string} */
+            kind: "employee" | "invite";
+            /** @description Employee id or invite id (see kind) */
+            id: string;
+            firstName: string;
+            lastName: string;
+            email: string;
+            personnelNumber: string | null;
+            /** @example 5000 */
+            monthlyAmountCents: number;
+            /** @enum {string} */
+            status: "invited" | "invite_expired" | "active" | "leaving" | "ended" | "blocked";
+            /** @description YYYY-MM-DD */
+            startedOn: string | null;
+            /** @description Last day of the benefit (leavers), YYYY-MM-DD */
+            benefitEndsOn: string | null;
+            /** @description Invites: when the code expires */
+            inviteExpiresAt: string | null;
+        };
+        InviteEmployeeDto: {
+            /** @example max.mustermann@firma.de */
+            email: string;
+            firstName: string;
+            lastName: string;
+            /** @example 10427 */
+            personnelNumber?: string;
+            /**
+             * @description Monthly credit in cents, 0 – 5000 (default 5000)
+             * @example 5000
+             */
+            monthlyAmountCents?: number;
+        };
+        BulkInviteDto: {
+            people: components["schemas"]["InviteEmployeeDto"][];
+        };
+        BulkInviteResultDto: {
+            email: string;
+            /** @enum {string} */
+            result: "invited" | "already_member" | "already_invited" | "failed";
+        };
+        UpdateEmployeeDto: {
+            /**
+             * @description Monthly credit in cents, 0 – 5000
+             * @example 2500
+             */
+            monthlyAmountCents?: number;
+            /**
+             * @description Empty to remove
+             * @example 10427
+             */
+            personnelNumber?: string;
+        };
+        SetLeavingDto: {
+            /**
+             * @description Last day the balance can be used (German time). A day in the past ends the benefit at once.
+             * @example 2026-12-31
+             */
+            lastDay: string;
+        };
+        MonthEmployeeDto: {
+            employeeId: string;
+            firstName: string;
+            lastName: string;
+            personnelNumber: string | null;
+            creditedCents: number;
+            /** @description YYYY-MM-DD (German time) */
+            creditedOn: string;
+        };
+        MonthDetailDto: {
+            summary: components["schemas"]["MonthSummaryDto"];
+            employees: components["schemas"]["MonthEmployeeDto"][];
+        };
+        HrMemberDto: {
+            userId: string;
+            email: string;
+            firstName: string;
+            lastName: string;
+            /** @enum {string} */
+            role: "owner" | "hr";
+            addedAt: string;
+            /** @description Has signed in at least once */
+            hasSignedIn: boolean;
+            /** @description The signed-in person */
+            isYou: boolean;
+        };
+        AddHrMemberDto: {
+            /** @example personal@firma.de */
+            email: string;
+            firstName: string;
+            lastName: string;
+            /**
+             * @description hr = employees and overview; owner = also the HR team
+             * @enum {string}
+             */
+            role: "owner" | "hr";
+        };
         UpdateProfileDto: {
             firstName: string;
             lastName: string;
@@ -1110,14 +1789,6 @@ export interface components {
             /** @description Printed shop QR code: the shop still has to accept */
             needsShopAcceptance: boolean;
             expiresAt: string;
-        };
-        OpeningPeriodDto: {
-            /** @description 1 = Monday … 7 = Sunday */
-            weekday: number;
-            /** @description Minutes after midnight */
-            opensAt: number;
-            /** @description Minutes after midnight */
-            closesAt: number;
         };
         ShopDto: {
             /** @description Location id */
@@ -1203,156 +1874,6 @@ export interface components {
             status: "open" | "used" | "expired" | "cancelled";
             payment?: components["schemas"]["PartnerPaymentDto"];
         };
-        PartnerLocationDto: {
-            id: string;
-            name: string;
-            street: string;
-            postalCode: string;
-            city: string;
-            /** @description The till ("Kasse") for payment requests */
-            tillId: string | null;
-            /** @description Text of the printed shop QR code, e.g. "kollektivo:shop:…" */
-            printedQrPayload: string | null;
-        };
-        PartnerShopDto: {
-            partnerId: string;
-            name: string;
-            /** @enum {string} */
-            role: "owner" | "staff";
-            /** @enum {string} */
-            status: "applied" | "in_review" | "active" | "suspended";
-            locations: components["schemas"]["PartnerLocationDto"][];
-        };
-        PartnerMeDto: {
-            id: string;
-            email: string;
-            firstName: string;
-            lastName: string;
-            shops: components["schemas"]["PartnerShopDto"][];
-        };
-        PartnerPaymentTotalsDto: {
-            count: number;
-            /** @description Paid with KollektivO credit */
-            amountCents: number;
-            purchaseTotalCents: number;
-            commissionCents: number;
-        };
-        PartnerPaymentRowDto: {
-            id: string;
-            /** @example DA7-5330 */
-            reference: string;
-            createdAt: string;
-            locationId: string;
-            /**
-             * @description Code from the till or the printed QR sticker
-             * @enum {string}
-             */
-            method: "till" | "printed_qr";
-            /** @enum {string} */
-            status: "awaiting_shop" | "completed" | "declined" | "timed_out" | "refunded" | "partially_refunded";
-            /** @description Paid with KollektivO credit */
-            amountCents: number;
-            /** @description Whole purchase; the difference was paid at the till */
-            purchaseTotalCents: number;
-            /**
-             * @description Basis points, 200 = 2 %
-             * @example 200
-             */
-            commissionBps: number;
-            /** @description Only for completed payments, else 0 */
-            commissionCents: number;
-        };
-        PartnerPaymentsPageDto: {
-            from: string;
-            to: string;
-            totals: components["schemas"]["PartnerPaymentTotalsDto"];
-            items: components["schemas"]["PartnerPaymentRowDto"][];
-            /** @description Pass as "before" for older payments; empty at the end */
-            nextBefore: string | null;
-        };
-        ShopDealDto: {
-            /** @example 10 % auf alle Kuchen */
-            title: string;
-            endsAt: string;
-        };
-        ShopProfileLocationDto: {
-            id: string;
-            name: string;
-            street: string;
-            postalCode: string;
-            city: string;
-            phone: string | null;
-            openingHours: components["schemas"]["OpeningPeriodDto"][];
-        };
-        ShopProfileDto: {
-            partnerId: string;
-            name: string;
-            /** @example bakery */
-            category: string;
-            description: string;
-            website: string | null;
-            imageUrl: string | null;
-            deal: components["schemas"]["ShopDealDto"] | null;
-            locations: components["schemas"]["ShopProfileLocationDto"][];
-        };
-        UpdateShopProfileDto: {
-            description: string;
-            /**
-             * @description Empty to remove
-             * @example www.backstube-lindner.de
-             */
-            website?: string;
-        };
-        OpeningPeriodInputDto: {
-            /** @description 1 = Monday … 7 = Sunday */
-            weekday: number;
-            /** @description Minutes after midnight */
-            opensAt: number;
-            /** @description Minutes after midnight, after opensAt */
-            closesAt: number;
-        };
-        UpdateShopLocationDto: {
-            /**
-             * @description Empty to remove
-             * @example 03573 123456
-             */
-            phone?: string;
-            /** @description Up to 3 periods per day (e.g. lunch break) */
-            openingHours: components["schemas"]["OpeningPeriodInputDto"][];
-        };
-        SetShopDealDto: {
-            /** @example 10 % auf alle Kuchen */
-            title: string;
-            /**
-             * @description Last day (German time); default in one year
-             * @example 2026-12-31
-             */
-            endsOn?: string;
-        };
-        TeamMemberDto: {
-            userId: string;
-            email: string;
-            firstName: string;
-            lastName: string;
-            /** @enum {string} */
-            role: "owner" | "staff";
-            addedAt: string;
-            /** @description Has signed in at least once (in the portal or the app) */
-            hasSignedIn: boolean;
-            /** @description The signed-in person */
-            isYou: boolean;
-        };
-        AddTeamMemberDto: {
-            /** @example kasse@backstube.example */
-            email: string;
-            firstName: string;
-            lastName: string;
-            /**
-             * @description staff = till and payments; owner = everything
-             * @enum {string}
-             */
-            role: "owner" | "staff";
-        };
         FavouritesDto: {
             /** @description Location ids */
             shopIds: string[];
@@ -1383,140 +1904,6 @@ export interface components {
         TicketCreatedDto: {
             /** @example KO-482913 */
             number: string;
-        };
-        EmployerCompanyDto: {
-            employerId: string;
-            name: string;
-            /**
-             * @description owner = also manages the HR team
-             * @enum {string}
-             */
-            role: "owner" | "hr";
-            /** @enum {string} */
-            status: "onboarding" | "active" | "ended";
-            street: string;
-            postalCode: string;
-            city: string;
-        };
-        EmployerMeDto: {
-            id: string;
-            email: string;
-            firstName: string;
-            lastName: string;
-            companies: components["schemas"]["EmployerCompanyDto"][];
-        };
-        EmployeeRowDto: {
-            /** @enum {string} */
-            kind: "employee" | "invite";
-            /** @description Employee id or invite id (see kind) */
-            id: string;
-            firstName: string;
-            lastName: string;
-            email: string;
-            personnelNumber: string | null;
-            /** @example 5000 */
-            monthlyAmountCents: number;
-            /** @enum {string} */
-            status: "invited" | "invite_expired" | "active" | "leaving" | "ended" | "blocked";
-            /** @description YYYY-MM-DD */
-            startedOn: string | null;
-            /** @description Last day of the benefit (leavers), YYYY-MM-DD */
-            benefitEndsOn: string | null;
-            /** @description Invites: when the code expires */
-            inviteExpiresAt: string | null;
-        };
-        InviteEmployeeDto: {
-            /** @example max.mustermann@firma.de */
-            email: string;
-            firstName: string;
-            lastName: string;
-            /** @example 10427 */
-            personnelNumber?: string;
-            /**
-             * @description Monthly credit in cents, 0 – 5000 (default 5000)
-             * @example 5000
-             */
-            monthlyAmountCents?: number;
-        };
-        BulkInviteDto: {
-            people: components["schemas"]["InviteEmployeeDto"][];
-        };
-        BulkInviteResultDto: {
-            email: string;
-            /** @enum {string} */
-            result: "invited" | "already_member" | "already_invited" | "failed";
-        };
-        UpdateEmployeeDto: {
-            /**
-             * @description Monthly credit in cents, 0 – 5000
-             * @example 2500
-             */
-            monthlyAmountCents?: number;
-            /**
-             * @description Empty to remove
-             * @example 10427
-             */
-            personnelNumber?: string;
-        };
-        SetLeavingDto: {
-            /**
-             * @description Last day the balance can be used (German time). A day in the past ends the benefit at once.
-             * @example 2026-12-31
-             */
-            lastDay: string;
-        };
-        MonthSummaryDto: {
-            /** @example 2026-10 */
-            period: string;
-            /** @description Employees who received credit this month */
-            employeeCount: number;
-            /** @description Credited to employees (the tax-free benefit) */
-            creditedCents: number;
-            /** @description Spent at partner shops */
-            spentCents: number;
-            /** @description Unspent, returned to the employer at month end */
-            returnedCents: number;
-            /** @description Still usable (current month) */
-            openCents: number;
-            /** @description The month is over and settled */
-            closed: boolean;
-        };
-        MonthEmployeeDto: {
-            employeeId: string;
-            firstName: string;
-            lastName: string;
-            personnelNumber: string | null;
-            creditedCents: number;
-            /** @description YYYY-MM-DD (German time) */
-            creditedOn: string;
-        };
-        MonthDetailDto: {
-            summary: components["schemas"]["MonthSummaryDto"];
-            employees: components["schemas"]["MonthEmployeeDto"][];
-        };
-        HrMemberDto: {
-            userId: string;
-            email: string;
-            firstName: string;
-            lastName: string;
-            /** @enum {string} */
-            role: "owner" | "hr";
-            addedAt: string;
-            /** @description Has signed in at least once */
-            hasSignedIn: boolean;
-            /** @description The signed-in person */
-            isYou: boolean;
-        };
-        AddHrMemberDto: {
-            /** @example personal@firma.de */
-            email: string;
-            firstName: string;
-            lastName: string;
-            /**
-             * @description hr = employees and overview; owner = also the HR team
-             * @enum {string}
-             */
-            role: "owner" | "hr";
         };
     };
     responses: never;
@@ -1786,6 +2173,963 @@ export interface operations {
                 content: {
                     "application/json": components["schemas"]["AdminMeDto"];
                 };
+            };
+        };
+    };
+    ReferenceController_categories_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CategoryOptionDto"][];
+                };
+            };
+        };
+    };
+    ReferenceController_regions_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": string[];
+                };
+            };
+        };
+    };
+    AdminShopsController_list_v1: {
+        parameters: {
+            query?: {
+                /** @description Name, city or member email */
+                search?: string;
+                status?: "applied" | "in_review" | "active" | "suspended";
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AdminShopRowDto"][];
+                };
+            };
+        };
+    };
+    AdminShopsController_create_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CreateAdminShopDto"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AdminCreatedDto"];
+                };
+            };
+        };
+    };
+    AdminShopsController_detail_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                partnerId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AdminShopDetailDto"];
+                };
+            };
+        };
+    };
+    AdminShopsController_update_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                partnerId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["UpdateAdminShopDto"];
+            };
+        };
+        responses: {
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    AdminShopsController_updateLocation_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                partnerId: string;
+                locationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["UpdateAdminLocationDto"];
+            };
+        };
+        responses: {
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    AdminShopsController_changeCommission_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                partnerId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ChangeCommissionDto"];
+            };
+        };
+        responses: {
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    AdminShopsController_inviteMember_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                partnerId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AdminInviteMemberDto"];
+            };
+        };
+        responses: {
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    AdminCompaniesController_list_v1: {
+        parameters: {
+            query?: {
+                /** @description Name, city or HR email */
+                search?: string;
+                status?: "onboarding" | "active" | "ended";
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AdminCompanyRowDto"][];
+                };
+            };
+        };
+    };
+    AdminCompaniesController_create_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CreateAdminCompanyDto"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AdminCreatedDto"];
+                };
+            };
+        };
+    };
+    AdminCompaniesController_detail_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                employerId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AdminCompanyDetailDto"];
+                };
+            };
+        };
+    };
+    AdminCompaniesController_update_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                employerId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["UpdateAdminCompanyDto"];
+            };
+        };
+        responses: {
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    AdminCompaniesController_inviteHr_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                employerId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AdminInviteHrDto"];
+            };
+        };
+        responses: {
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    PartnersController_me_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PartnerMeDto"];
+                };
+            };
+        };
+    };
+    PartnerPaymentsController_list_v1: {
+        parameters: {
+            query?: {
+                /** @description First day (German time), default today */
+                from?: string;
+                /** @description Last day (German time), default = from */
+                to?: string;
+                /** @description Only payments at this location */
+                locationId?: string;
+                /** @description nextBefore from the previous page (list only, not CSV) */
+                before?: string;
+            };
+            header?: never;
+            path: {
+                partnerId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PartnerPaymentsPageDto"];
+                };
+            };
+        };
+    };
+    PartnerPaymentsController_csv_v1: {
+        parameters: {
+            query?: {
+                /** @description First day (German time), default today */
+                from?: string;
+                /** @description Last day (German time), default = from */
+                to?: string;
+                /** @description Only payments at this location */
+                locationId?: string;
+                /** @description nextBefore from the previous page (list only, not CSV) */
+                before?: string;
+            };
+            header?: never;
+            path: {
+                partnerId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description CSV file */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "text/csv": string;
+                };
+            };
+        };
+    };
+    ShopProfileController_get_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                partnerId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ShopProfileDto"];
+                };
+            };
+        };
+    };
+    ShopProfileController_update_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                partnerId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["UpdateShopProfileDto"];
+            };
+        };
+        responses: {
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    ShopProfileController_updateLocation_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                partnerId: string;
+                locationId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["UpdateShopLocationDto"];
+            };
+        };
+        responses: {
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    ShopProfileController_setDeal_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                partnerId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SetShopDealDto"];
+            };
+        };
+        responses: {
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    ShopProfileController_removeDeal_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                partnerId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    ShopProfileController_setPhoto_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                partnerId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "multipart/form-data": {
+                    /** Format: binary */
+                    photo?: string;
+                };
+            };
+        };
+        responses: {
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    TeamController_list_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                partnerId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TeamMemberDto"][];
+                };
+            };
+        };
+    };
+    TeamController_add_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                partnerId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AddTeamMemberDto"];
+            };
+        };
+        responses: {
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    TeamController_remove_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                partnerId: string;
+                userId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    EmployersController_me_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EmployerMeDto"];
+                };
+            };
+        };
+    };
+    EmployeesController_list_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                employerId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EmployeeRowDto"][];
+                };
+            };
+        };
+    };
+    EmployeesController_invite_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                employerId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["InviteEmployeeDto"];
+            };
+        };
+        responses: {
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    EmployeesController_inviteMany_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                employerId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["BulkInviteDto"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["BulkInviteResultDto"][];
+                };
+            };
+        };
+    };
+    EmployeesController_resend_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                employerId: string;
+                inviteId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    EmployeesController_cancel_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                employerId: string;
+                inviteId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    EmployeesController_update_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                employerId: string;
+                employeeId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["UpdateEmployeeDto"];
+            };
+        };
+        responses: {
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    EmployeesController_setLeaving_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                employerId: string;
+                employeeId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SetLeavingDto"];
+            };
+        };
+        responses: {
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    EmployeesController_cancelLeaving_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                employerId: string;
+                employeeId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    EmployeesController_block_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                employerId: string;
+                employeeId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    EmployeesController_unblock_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                employerId: string;
+                employeeId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    MonthsController_list_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                employerId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MonthSummaryDto"][];
+                };
+            };
+        };
+    };
+    MonthsController_detail_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                employerId: string;
+                period: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MonthDetailDto"];
+                };
+            };
+        };
+    };
+    MonthsController_payroll_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                employerId: string;
+                period: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description CSV file */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "text/csv": string;
+                };
+            };
+        };
+    };
+    HrTeamController_list_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                employerId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HrMemberDto"][];
+                };
+            };
+        };
+    };
+    HrTeamController_add_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                employerId: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AddHrMemberDto"];
+            };
+        };
+        responses: {
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    HrTeamController_remove_v1: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                employerId: string;
+                userId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
             };
         };
     };
@@ -2219,286 +3563,6 @@ export interface operations {
             };
         };
     };
-    PartnersController_me_v1: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["PartnerMeDto"];
-                };
-            };
-        };
-    };
-    PartnerPaymentsController_list_v1: {
-        parameters: {
-            query?: {
-                /** @description First day (German time), default today */
-                from?: string;
-                /** @description Last day (German time), default = from */
-                to?: string;
-                /** @description Only payments at this location */
-                locationId?: string;
-                /** @description nextBefore from the previous page (list only, not CSV) */
-                before?: string;
-            };
-            header?: never;
-            path: {
-                partnerId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["PartnerPaymentsPageDto"];
-                };
-            };
-        };
-    };
-    PartnerPaymentsController_csv_v1: {
-        parameters: {
-            query?: {
-                /** @description First day (German time), default today */
-                from?: string;
-                /** @description Last day (German time), default = from */
-                to?: string;
-                /** @description Only payments at this location */
-                locationId?: string;
-                /** @description nextBefore from the previous page (list only, not CSV) */
-                before?: string;
-            };
-            header?: never;
-            path: {
-                partnerId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description CSV file */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "text/csv": string;
-                };
-            };
-        };
-    };
-    ShopProfileController_get_v1: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                partnerId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ShopProfileDto"];
-                };
-            };
-        };
-    };
-    ShopProfileController_update_v1: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                partnerId: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["UpdateShopProfileDto"];
-            };
-        };
-        responses: {
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    ShopProfileController_updateLocation_v1: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                partnerId: string;
-                locationId: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["UpdateShopLocationDto"];
-            };
-        };
-        responses: {
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    ShopProfileController_setDeal_v1: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                partnerId: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["SetShopDealDto"];
-            };
-        };
-        responses: {
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    ShopProfileController_removeDeal_v1: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                partnerId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    ShopProfileController_setPhoto_v1: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                partnerId: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "multipart/form-data": {
-                    /** Format: binary */
-                    photo?: string;
-                };
-            };
-        };
-        responses: {
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    TeamController_list_v1: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                partnerId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["TeamMemberDto"][];
-                };
-            };
-        };
-    };
-    TeamController_add_v1: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                partnerId: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["AddTeamMemberDto"];
-            };
-        };
-        responses: {
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    TeamController_remove_v1: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                partnerId: string;
-                userId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
     ShopsController_list_v1: {
         parameters: {
             query?: never;
@@ -2637,372 +3701,6 @@ export interface operations {
                 content: {
                     "application/json": components["schemas"]["TicketCreatedDto"];
                 };
-            };
-        };
-    };
-    EmployersController_me_v1: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["EmployerMeDto"];
-                };
-            };
-        };
-    };
-    EmployeesController_list_v1: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                employerId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["EmployeeRowDto"][];
-                };
-            };
-        };
-    };
-    EmployeesController_invite_v1: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                employerId: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["InviteEmployeeDto"];
-            };
-        };
-        responses: {
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    EmployeesController_inviteMany_v1: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                employerId: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["BulkInviteDto"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["BulkInviteResultDto"][];
-                };
-            };
-        };
-    };
-    EmployeesController_resend_v1: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                employerId: string;
-                inviteId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    EmployeesController_cancel_v1: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                employerId: string;
-                inviteId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    EmployeesController_update_v1: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                employerId: string;
-                employeeId: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["UpdateEmployeeDto"];
-            };
-        };
-        responses: {
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    EmployeesController_setLeaving_v1: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                employerId: string;
-                employeeId: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["SetLeavingDto"];
-            };
-        };
-        responses: {
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    EmployeesController_cancelLeaving_v1: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                employerId: string;
-                employeeId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    EmployeesController_block_v1: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                employerId: string;
-                employeeId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    EmployeesController_unblock_v1: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                employerId: string;
-                employeeId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    MonthsController_list_v1: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                employerId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["MonthSummaryDto"][];
-                };
-            };
-        };
-    };
-    MonthsController_detail_v1: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                employerId: string;
-                period: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["MonthDetailDto"];
-                };
-            };
-        };
-    };
-    MonthsController_payroll_v1: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                employerId: string;
-                period: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description CSV file */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "text/csv": string;
-                };
-            };
-        };
-    };
-    HrTeamController_list_v1: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                employerId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["HrMemberDto"][];
-                };
-            };
-        };
-    };
-    HrTeamController_add_v1: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                employerId: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["AddHrMemberDto"];
-            };
-        };
-        responses: {
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    HrTeamController_remove_v1: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                employerId: string;
-                userId: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };

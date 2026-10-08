@@ -1,15 +1,15 @@
 import type { Metadata } from 'next';
 
 import { PageHeader } from '@/components/ui/page-header';
+import { ShopListScreen } from '@/features/shops/shop-list-screen';
 
 export const metadata: Metadata = { title: 'Läden' };
 
-// TODO(admin): built in the next steps of the admin portal plan.
 export default function Page() {
   return (
     <>
       <PageHeader title="Läden" />
-      <p className="px-4 text-ink-muted md:px-8">Folgt in Kürze.</p>
+      <ShopListScreen />
     </>
   );
 }
